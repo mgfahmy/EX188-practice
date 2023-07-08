@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
     registry.vm.box = "almalinux/8"
     registry.vm.hostname = "registry.do180.lab"
     registry.vm.network :private_network, ip: "192.168.88.5"
-    registry.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ".git/"
+    registry.vm.synced_folder "C:\Users\Mega Store\OneDrive\Desktop\help", "/vagrant", type: "rsync", rsync__exclude: ".git/"
 
     registry.vm.provision :shell, :inline => "sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config; sudo systemctl restart sshd;"
     registry.vm.provision :shell, :inline => "yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y; sudo yum install -y sshpass ansible"
